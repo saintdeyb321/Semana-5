@@ -1,0 +1,31 @@
+create database Registro
+USE Registro
+CREATE TABLE Persona (
+    codigo VARCHAR(10) PRIMARY KEY,    
+    nombre VARCHAR(50) NOT NULL,       
+    apellidos VARCHAR(50) NOT NULL,      
+    facultad VARCHAR(50) NOT NULL CHECK (facultad IN (
+        'Ciencias Administrativas y Contables',
+        'Ingeniería',
+        'Derecho y Ciencias Políticas',
+        'Ciencias de la Salud',
+        'Medicina Humana'
+    )),                                   
+    edad INT CHECK (edad > 0),            
+    provincia VARCHAR(50) NOT NULL CHECK (provincia IN (
+        'Huancayo',
+        'Concepción',
+        'Chupaca',
+        'Jauja',
+        'Junín',
+        'Satipo',
+        'Tarma',
+        'Yauli',
+        'Chanchamayo'
+    ))                                 
+);
+
+INSERT INTO Persona (codigo, nombre, apellidos, facultad, edad, provincia) VALUES
+('A001', 'Carlos', 'Gonzales Pérez', 'Ingeniería', 21, 'Huancayo'),
+('A002', 'María', 'Ramírez Silva', 'Ciencias de la Salud', 24, 'Tarma'),
+('A003', 'Lucía', 'López Rojas', 'Derecho y Ciencias Políticas', 22, 'Concepción');
